@@ -27,14 +27,27 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        return http
+        http
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/signup").permitAll()
                         .requestMatchers("/login").permitAll()
                         .anyRequest().authenticated()
                 )
                 .userDetailsService(authenticationService)
-                .build();
+                .httpBasic(withDefaults());
+        // If using HTTP Basic Auth
+        http.httpBasic(withDefaults());
+
+        // If using form login with a custom login page
+        // http.formLogin()
+        //     .loginPage("/login").permitAll()
+        //     .defaultSuccessUrl("/home", true)
+        //     .failureUrl("/login?error=true");
+
+        // If CSRF protection needs to be disabled for a REST API
+        http.csrf().disable();
+
+        return http.build();
     }
 
     @Bean

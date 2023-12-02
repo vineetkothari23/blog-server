@@ -49,7 +49,6 @@ public class UserController {
                 new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authentication);
         return new ResponseEntity<>("User login successful", HttpStatus.OK);
-
     }
 
 
