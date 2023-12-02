@@ -11,18 +11,18 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 @Entity
 @Table(name = "users")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class UserRecord {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false, unique = true)
+    private Long id;
 
     @Column(name = "email", nullable = false, unique = true)
     private String email;
@@ -30,25 +30,21 @@ public class User {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(name = "first_name", nullable = false)
-    private String firstName;
-
-    @Column(name = "last_name", nullable = false)
-    private String lastName;
-
-    @Column(name = "phone_no")
-    private String phoneNo;
+    @Column(name = "name", nullable = false)
+    private String name;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
-    public UUID getId() {
-        return id;
-    }
+    @Column(name = "roles")
+    private String roles;
 
-    public void setId(UUID id) {
-        this.id = id;
+    public UserRecord(String name, String email, String password, String roles) {
+        this.email = email;
+        this.password = password;
+        this.name = name;
+        this.roles = roles;
+        this.createdAt = LocalDateTime.now();
     }
-
     // Getters, setters, and other methods
 }
