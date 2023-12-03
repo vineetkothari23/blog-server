@@ -1,6 +1,6 @@
 package com.blogserver.services;
 
-import com.blogserver.dataobjects.UserRecord;
+import com.blogserver.model.UserRecord;
 import com.blogserver.repositories.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

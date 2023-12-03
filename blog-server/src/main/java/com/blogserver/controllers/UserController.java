@@ -1,7 +1,7 @@
 package com.blogserver.controllers;
 
-import com.blogserver.dataobjects.UserRecord;
-import com.blogserver.request.LoginRequest;
+import com.blogserver.model.UserRecord;
+import com.blogserver.model.request.LoginRequest;
 import com.blogserver.services.UserService;
 import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;

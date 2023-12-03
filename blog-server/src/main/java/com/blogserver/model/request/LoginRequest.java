@@ -1,4 +1,4 @@
-package com.blogserver.request;
+package com.blogserver.model.request;
 
 import lombok.Data;
 

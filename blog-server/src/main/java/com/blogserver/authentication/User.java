@@ -1,6 +1,6 @@
 package com.blogserver.authentication;
 
-import com.blogserver.dataobjects.UserRecord;
+import com.blogserver.model.UserRecord;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,6 +22,14 @@ public class User implements UserDetails {
                         .split(","))
                 .map(SimpleGrantedAuthority::new)
                 .toList();
+    }
+
+    public Long getId() {
+        return user.getId();
+    }
+
+    public String getName() {
+        return user.getName();
     }
 
     public String getPassword() {

@@ -1,6 +1,6 @@
 package com.blogserver.repositories;
 
-import com.blogserver.dataobjects.UserRecord;
+import com.blogserver.model.UserRecord;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
